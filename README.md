@@ -10,9 +10,9 @@
         ProviderCredentials cred = new SNDACredentials(access_key_id, 
                                                        access_key_secret);
         CSService service = new RestCSService(cred);
-        StorageBucket bucket = service.createBucket("bucket_name");
+        CSBucket csBucket = service.createBucket("bucket_name");
         CSObject csObject = new CSObject(new File("filepath/file"));
-        service.putObject(bucket.getName(), object);
+        service.putObject(csBucket.getName(), csObject);
     } catch (CSServiceException e) {
         System.out.println(e.getErrorCode());
         System.out.println(e.getErrorMessage());
